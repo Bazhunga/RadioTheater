@@ -1,16 +1,31 @@
 package com.zhudocode.radiotheater;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class RTMainActivity extends ActionBarActivity {
+    Context ct = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rtmain);
+        Button bt_helloworld = (Button) findViewById(R.id.button_hw);
+
+        bt_helloworld.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CharSequence text = "Congratulations. You've pressed the button.";
+                Toast toast_hw = Toast.makeText(ct, text, Toast.LENGTH_LONG);
+                toast_hw.show();
+            }
+        });
     }
 
     @Override
